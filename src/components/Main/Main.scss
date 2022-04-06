@@ -1,0 +1,22 @@
+body{
+    background: #668F80;
+}
+.main h1{
+    border-bottom: 3px solid black;
+    padding: 10px;
+}
+.day_link{
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    font-weight: bold
+}
+.day{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 200px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+}

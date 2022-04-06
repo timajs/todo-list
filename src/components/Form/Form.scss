@@ -1,0 +1,17 @@
+$fontsize:17px;
+
+.form input{
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    font-size: $fontsize;
+    font-weight: bold;
+}
+.form button{
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    font-size: $fontsize;
+}

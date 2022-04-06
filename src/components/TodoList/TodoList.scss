@@ -1,0 +1,23 @@
+.todo li{
+    margin: 10px;
+    list-style: none;
+}
+.todo input{
+    padding: 15px 30px;
+    font-size: 17px;
+    border-radius: 10px;
+    font-weight: bold;
+    outline: none;
+    background: white;
+    border: 2px solid black;
+}
+.todo button {
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+.icon{
+    font-size: 15px;
+}
+.listcomplete{
+    text-decoration: line-through 2px red;
+}

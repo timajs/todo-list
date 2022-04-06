@@ -1,0 +1,12 @@
+$backColor:#668F80;
+
+.backTodo{
+    background: $backColor;
+    min-height: 900px;  
+}
+
+.backTodo h1{
+    margin: 0px;
+    padding: 5px 20px;
+    border-bottom: 3px solid black;
+}
