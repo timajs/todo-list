@@ -6,12 +6,12 @@ import './TodoList.scss'
 
 const TodoList = ({ todos, setTodos, setEditTodo }) => {
 
-    const handleDelete = ( { id } ) => {
+    const handleDelete = ({ id }) => {
         setTodos(todos.filter((todo) => todo.id !== id))
     }
 
     const handleComplete = (todo) => {
-        setTodos(  
+        setTodos(
             todos.map((item) => {
                 if (item.id === todo.id) {
                     return { ...item, completed: !item.completed }
@@ -36,13 +36,13 @@ const TodoList = ({ todos, setTodos, setEditTodo }) => {
                         onChange={(event) => event.preventDefault()}
                     />
                     <button>
-                        <FontAwesomeIcon icon={faCheckSquare} className='icon' onClick={() => handleComplete(todo)}  />
+                        <FontAwesomeIcon icon={faCheckSquare} className='icon' onClick={() => handleComplete(todo)} />
                     </button>
                     <button>
                         <FontAwesomeIcon icon={faEdit} className='icon' onClick={() => handleEdit(todo)} />
                     </button>
                     <button>
-                        <FontAwesomeIcon icon={faTrash} className='icon'  onClick={() => handleDelete(todo)}/>
+                        <FontAwesomeIcon icon={faTrash} className='icon' onClick={() => handleDelete(todo)} />
                     </button>
                 </li>
             ))}

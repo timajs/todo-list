@@ -1,29 +1,42 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import './Main.scss'
+import ProgressDone from '../ProgressDone/ProgressDone'
 
 const Main = () => {
+  const getMonday = JSON.parse(localStorage.getItem("Monday")) || [];
+  const getThuesday = JSON.parse(localStorage.getItem("Thuesday")) || [];
+  const getWednesday = JSON.parse(localStorage.getItem("Wednesday")) || [];
+  const getThursday = JSON.parse(localStorage.getItem("Thursday")) || [];
+  const getFriday = JSON.parse(localStorage.getItem("Friday")) || [];
+  const getSaturday = JSON.parse(localStorage.getItem("Saturday")) || [];
   return (
     <div className='main'>
       <h1>Todo-List</h1>
       <div>
         <Link to="/monday" className='day_link'>
-          <div className='day'>Monday</div>
+          <h4>MONDAY</h4>
+          <ProgressDone done={getMonday.length} />
         </Link>
         <Link to="/thuesday" className='day_link'>
-          <div className='day'>Thuesday</div>
+          <h4>Thuesday</h4>
+          <ProgressDone done={getThuesday.length} />
         </Link>
         <Link to="/wednesday" className='day_link'>
-          <div className='day'>Wednesday</div>
+          <h4>Wednesday</h4>
+          <ProgressDone done={getWednesday.length} />
         </Link>
         <Link to="/thursday" className='day_link'>
-          <div className='day'>Thursday</div>
+          <h4>Thursday</h4>
+          <ProgressDone done={getThursday.length} />
         </Link>
         <Link to="/friday" className='day_link'>
-          <div className='day'>Friday</div>
+          <h4>Friday</h4>
+          <ProgressDone done={getFriday.length} />
         </Link>
         <Link to="/saturday" className='day_link'>
-          <div className='day'>Saturday</div>
+          <h4>Saturday</h4>
+          <ProgressDone done={getSaturday.length} />
         </Link>
       </div>
     </div>
