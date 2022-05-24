@@ -10,11 +10,15 @@ export const Friday = () => {
   const [input, setInput] = useState("")
   const [todos, setTodos] = useState(initialState)
   const [editTodo, setEditTodo] = useState(null)
+  const [completedCount , setCompletedCount] = useState(0);
 
 
   useEffect(() => {
     localStorage.setItem("Friday" , JSON.stringify(todos));
   }, [todos]);
+  useEffect(() => {
+    localStorage.setItem("FridayCompleted" , JSON.stringify(completedCount));
+  }, [completedCount]);
 
   return (
     <div className='backTodo'>
@@ -35,6 +39,8 @@ export const Friday = () => {
           todos={todos}
           setTodos={setTodos}
           setEditTodo={setEditTodo}
+          completedCount={completedCount}
+          setCompletedCount={setCompletedCount}
         />
       </div>
     </div>

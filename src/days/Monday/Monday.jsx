@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from '../../components/Form/Form'
 import TodoList from '../../components/TodoList/TodoList'
-import { useState , useEffect } from 'react';
+import { useState , useEffect} from 'react';
 import '../../components/Styles/style.scss'
 
 export const Monday = () => {
@@ -9,10 +9,16 @@ export const Monday = () => {
   const [input, setInput] = useState("")
   const [todos, setTodos] = useState(initialState)
   const [editTodo, setEditTodo] = useState(null)
+  const [completedCount , setCompletedCount] = useState(0);
+
+
 
   useEffect(() => {
     localStorage.setItem("Monday" , JSON.stringify(todos));
   }, [todos]);
+  useEffect(() => {
+    localStorage.setItem("MondayCompleted" , JSON.stringify(completedCount));
+  }, [completedCount]);
 
   return (
     <div className='backTodo'>
@@ -34,6 +40,9 @@ export const Monday = () => {
           todos={todos}
           setTodos={setTodos}
           setEditTodo={setEditTodo}
+          completedCount={completedCount}
+          setCompletedCount={setCompletedCount}
+
         />
       </div>
     </div>

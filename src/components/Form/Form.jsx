@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from "uuid"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import './Form.scss'
 
 
@@ -15,7 +18,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
 
 
     const onInputChange = (event) => {
-        setInput(event.target.value);
+        setInput(event.target.value); 
     };
     useEffect(() => {
         if (editTodo) {
@@ -34,8 +37,11 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
             updateTodo(input, editTodo.id, editTodo.completed)
         }
     };
-
     return (
+        <>
+        <Link to='/' className='mainLink'>
+            <FontAwesomeIcon icon={faArrowLeft} className='link-icon'/>
+        </Link>
         <form onSubmit={onFormSubmit} className='form'>
             <input
                 type="text"
@@ -47,6 +53,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
             />
             <button type="submit" className='btn'>Add</button>
         </form>
+        </>
     )
 }
 

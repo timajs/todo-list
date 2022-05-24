@@ -4,7 +4,7 @@ import { faCheckSquare, faEdit, faTrash } from '@fortawesome/free-solid-svg-icon
 import './TodoList.scss'
 
 
-const TodoList = ({ todos, setTodos, setEditTodo }) => {
+const TodoList = ({ todos, setTodos, setEditTodo, completedCount, setCompletedCount}) => {
 
     const handleDelete = ({ id }) => {
         setTodos(todos.filter((todo) => todo.id !== id))
@@ -20,10 +20,27 @@ const TodoList = ({ todos, setTodos, setEditTodo }) => {
             })
         );
     };
+
+    
     const handleEdit = ({ id }) => {
         const findTodo = todos.find((todo) => todo.id === id);
         setEditTodo(findTodo);
     }
+
+    const getFinishedTodosCount = (todos) => todos.reduce((acc, curr) => {
+        acc.total = todos.length;
+
+        if(curr.completed){
+            acc.finished = acc.finished + 1;
+        }
+
+        return acc;
+
+    }, { total: 0, finished: 0})
+
+    const totalCount = getFinishedTodosCount(todos);
+    setCompletedCount(totalCount.finished)
+
     return (
         <div className='todo'>
             {todos.map((todo) => (
@@ -33,6 +50,7 @@ const TodoList = ({ todos, setTodos, setEditTodo }) => {
                         value={todo.title}
                         disabled
                         className={`list${todo.completed ? "complete" : ""}`}
+                        
                         onChange={(event) => event.preventDefault()}
                     />
                     <button>
